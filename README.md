@@ -15,8 +15,8 @@ Website Functions:
 
 วิธีมีส่วนร่วม:
 - ติดตาม และ ส่ง Pull Request ได้เลยที่ https://github.com/kaogeek/hack-th
-- กดรับยศ ใน KaoGeek Discord เพื่อพูดคุยติดตามในช่อง 🌐┆hack-go-th จะแนะนำตัวและบอกสิ่งที่ถนัดช่วยได้เลย (สามารถเชื่อมบัญชี GitHub แสดงเป็นยศ Developer เพื่อให้ง่ายต่อการดูผลงานที่เคยทำมาได้)
+- กดรับยศ ใน KaoGeek Discord (https://discord.com/invite/kaogeek) เพื่อพูดคุยติดตามในช่อง 🌐┆hack-go-th จะแนะนำตัวและบอกสิ่งที่ถนัดช่วยได้เลย (สามารถเชื่อมบัญชี GitHub แสดงเป็นยศ Developer เพื่อให้ง่ายต่อการดูผลงานที่เคยทำมาได้)
 
 Contribution:
 - Follow and submit Pull Requests directly at https://github.com/kaogeek/hack-th.
-- Select role "HackTH" in KaoGeek Discord to engage in discussions and stay updated in the channel 🌐┆hack-go-th. Introduce yourself and let us know how you can contribute (You can connect your GitHub account to display your Developer rank for easy access to view your past work).
+- Select role "HackTH" in KaoGeek Discord (https://discord.com/invite/kaogeek) to engage in discussions and stay updated in the channel 🌐┆hack-go-th. Introduce yourself and let us know how you can contribute (You can connect your GitHub account to display your Developer rank for easy access to view your past work).
