@@ -7,15 +7,5 @@
   "useTabs": false,
   "trailingComma": "es5",
   "bracketSpacing": true,
-  "endOfLine": "lf",
-  "plugins": ["prettier-plugin-astro"],
-  "pluginSearchDirs": ["."],
-  "overrides": [
-    {
-      "files": "*.astro",
-      "options": {
-        "parser": "astro"
-      }
-    }
-  ]
+  "endOfLine": "lf"
 }
