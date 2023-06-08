@@ -2,13 +2,14 @@ import { buildConfig } from 'payload/config'
 import path from 'path'
 
 import Users from './collections/Users'
+import Projects from './collections/Projects'
 
 export default buildConfig({
   serverURL: 'http://localhost:3000',
   admin: {
     user: Users.slug,
   },
-  collections: [Users],
+  collections: [Users, Projects],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
