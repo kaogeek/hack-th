@@ -6,7 +6,7 @@ import { handler as ssrHandler } from './dist/server/entry.mjs'
 
 const app = Fastify({ logger: true })
 
-// TODO: testing 0PDD bot
+// TODO: #1 testing 0PDD bot
 
 await app
   .register(fastifyStatic, {
