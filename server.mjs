@@ -6,6 +6,8 @@ import { handler as ssrHandler } from './dist/server/entry.mjs'
 
 const app = Fastify({ logger: true })
 
+// TODO: testing 0PDD bot
+
 await app
   .register(fastifyStatic, {
     root: fileURLToPath(new URL('./dist/client', import.meta.url)),
