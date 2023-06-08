@@ -15,6 +15,11 @@ Website Functions:
 2. **Hackathon Results Compilation:** This portal serves as a centralized hub, bringing together the outcomes of hackathons organized by the public & civic sectors. By harnessing the high impact prototypes generated in these hackathons, the future development of digital platforms can prioritize a people-centric approach.
 3. **Single API Portal:** Connecting seamlessly with all government APIs, this unified channel simplifies access to various services, much like Google API's integration with Google's diverse range of offerings. Additionally, this portal serves as a centralized repository for comprehensive developer documentation.
 
+## Documentations
+- [Navigation Bar](./NAVIGATION.md)
+- [Entities](./ENTITIES.md)
+- [Technologies](./TECH.md)
+
 ## How to Contribute
 วิธีมีส่วนร่วม:
 - ติดตาม และ ส่ง Pull Request ได้เลยที่ https://github.com/kaogeek/hack-th
