@@ -1,26 +1,34 @@
-FROM node:18.8-alpine as base
+FROM node:19-alpine AS pnpm
+RUN apk add --no-cache libc6-compat
+RUN apk update
 
-FROM base as builder
+ENV PNPM_HOME="/root/.local/share/pnpm"
+ENV PATH="${PATH}:${PNPM_HOME}"
+RUN npm install -g pnpm
 
-WORKDIR /home/node/app
-COPY package*.json ./
+# ----------------------------
 
-COPY . .
-RUN yarn install
-RUN yarn build
+FROM pnpm as builder
+WORKDIR /app
 
-FROM base as runtime
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
-ENV NODE_ENV=production
-ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
+COPY src ./src
+COPY tsconfig.json ./
+RUN pnpm build
 
-WORKDIR /home/node/app
-COPY package*.json  ./
+# ----------------------------
 
-RUN yarn install --production
-COPY --from=builder /home/node/app/dist ./dist
-COPY --from=builder /home/node/app/build ./build
+FROM pnpm as runtime
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile --production
+
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/build ./build
 
 EXPOSE 3000
 
-CMD ["node", "dist/server.js"]
+CMD ["pnpm", "serve"]
