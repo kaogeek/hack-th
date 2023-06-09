@@ -33,3 +33,15 @@ jobs:
           file: Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}
+      - name: publish
+        uses: deploys-app/deploys-action@v1
+        with:
+          project: ${{ secrets.DEPLOYS_NAME }}
+          location: gke.cluster-rcf2
+          name: hack-th
+          image: ghcr.io/${{ github.repository }}
+          minReplicas: 1
+          maxReplicas: 2
+        env:
+          DEPLOYS_AUTH_USER: ${{ secrets.DEPLOYS_AUTH_USER }}
+          DEPLOYS_AUTH_PASS: ${{ secrets.DEPLOYS_AUTH_PASS }}
