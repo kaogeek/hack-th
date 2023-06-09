@@ -1,5 +1,5 @@
 {
-  "name": "hackth",
+  "name": "@hackth/web",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -12,7 +12,6 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "dependencies": {
-    "@astrojs/netlify": "^2.3.0",
     "@fastify/middie": "^8.3.0",
     "@fastify/static": "^6.10.1",
     "fastify": "^4.17.0"

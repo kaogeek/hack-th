@@ -1,5 +1,5 @@
 {
-  "name": "cms",
+  "name": "@hackth/cms",
   "description": "Payload project created from blank template",
   "version": "1.0.0",
   "main": "dist/server.js",

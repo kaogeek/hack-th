@@ -14,7 +14,11 @@ concurrency:
 
 jobs:
   deploy:
+    name: ${{ matrix.context }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        context: [web, cms]
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -29,17 +33,17 @@ jobs:
       - name: build
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ${{ matrix.context }}
           file: Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}
+          tags: ghcr.io/${{ github.repository }}-${{ matrix.context }}
       - name: publish
         uses: deploys-app/deploys-action@v1
         with:
           project: ${{ secrets.DEPLOYS_NAME }}
           location: gke.cluster-rcf2
-          name: hack-th
-          image: ghcr.io/${{ github.repository }}
+          name: hackth-${{ matrix.context }}
+          image: ghcr.io/${{ github.repository }}-${{ matrix.context }}
           minReplicas: 1
           maxReplicas: 2
         env:
