@@ -1,22 +1,38 @@
 ---
-import { Project } from '../components/project'
+import Base from '$layouts/base.astro'
+
+import { Project } from '$components/project'
+import { getProjects } from '$functions/getProjects'
+
+const projects = await getProjects()
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Hack.go.th</title>
-  </head>
-  <body>
-    <h1 class="font-bold text-2xl">Hack.go.th</h1>
-    <Project
-      project={{
-        title: 'Bugeting',
-        description: 'Sample project card',
-        tags: ['api', 'in progress'],
-      }}
-    />
-  </body>
-</html>
+<Base>
+  <section class="bg-[#52a185] h-48 flex items-center">
+    <div class="max-w-2xl flex px-8 space-x-16 my-auto text-white">
+      <h1 class="text-2xl shrink-0 font-medium">
+        Thai Government<br />Developer Portal
+      </h1>
+      <p class="text-lg font-light">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+  </section>
+  <section class="p-8 space-y-4">
+    <h1 class="font-medium text-2xl">Featured Government Products</h1>
+    <div class="grid grid-cols-4 gap-8">
+      {
+        projects.slice(0, 4).map(project => (
+          <Project
+            project={{
+              title: project.name,
+              description: 'แอบมองเธอเพียงผู้เดียวก่อนโตแล้วจะเป็นคนพิเศษงมุ้แตกระเบิดจนไป ฉันคิดถึงความรู้สึกของเรามาเต้นไป',
+              tags: ['api', 'in progress'],
+            }}
+          />
+        ))
+      }
+    </div>
+  </section>
+</Base>

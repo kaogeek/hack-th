@@ -1,0 +1,22 @@
+---
+import Blank from './blank.astro'
+---
+
+<Blank>
+  <nav class="h-16 bg-black text-white flex justify-between items-center px-8">
+    <div class="flex space-x-8 items-center">
+      <h1 class="font-semibold text-2xl">HACK.GO.TH</h1>
+      <ul class="flex space-x-4">
+        <li>Topics</li>
+        <li>Products</li>
+        <li>Docs</li>
+        <li>Onboard</li>
+      </ul>
+    </div>
+    <ul class="flex space-x-4">
+      <li>Blog</li>
+      <li>Search</li>
+    </ul>
+  </nav>
+  <slot />
+</Blank>

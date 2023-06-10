@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 type CardTag = {
   label: string
@@ -51,5 +51,21 @@ export const cardBuilder = (buildCard: BuildCardFn): ReactNode => {
     },
   })
 
-  return <div>{title}</div>
+  return (
+    <div className="border border-black p-6 rounded space-y-2">
+      {title && <h1 className="font-medium text-xl">{title}</h1>}
+      {description && <p>{description}</p>}
+      {(tags.length !== 0 || buttons.length !== 0) && (
+        <div className="pt-2 space-y-2">
+          {tags.length !== 0 && (
+            <div className="flex flex-wrap space-x-2">
+              {tags.map(tag => (
+                <span className="border border-black rounded-full px-2 text-sm">#{tag.label}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
 }

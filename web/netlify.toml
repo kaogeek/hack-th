@@ -1,3 +1,0 @@
-# example netlify.toml
-[build]
-  publish = "netlify"

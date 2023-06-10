@@ -1,4 +1,4 @@
-import { cardBuilder } from '../design-system/card'
+import { cardBuilder } from '$design-system/card'
 
 interface ProjectProps {
   project: {
@@ -8,7 +8,9 @@ interface ProjectProps {
   }
 }
 
-export const Project = ({ project: {title, description, tags} }: ProjectProps) => {
+export const Project = ({
+  project: { title, description, tags },
+}: ProjectProps) => {
   const element = cardBuilder(card => {
     card.title(title)
 
@@ -21,8 +23,6 @@ export const Project = ({ project: {title, description, tags} }: ProjectProps) =
       })
     )
   })
-
-  console.log(element)
 
   return element
 }

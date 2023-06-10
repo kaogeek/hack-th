@@ -12,7 +12,6 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "dependencies": {
-    "@astrojs/react": "^2.2.1",
     "@fastify/middie": "^8.3.0",
     "@fastify/static": "^6.10.1",
     "@types/react": "^18.0.21",
@@ -23,7 +22,10 @@
   },
   "devDependencies": {
     "@astrojs/node": "5.1.4",
+    "@astrojs/react": "^2.2.1",
     "@astrojs/tailwind": "3.1.3",
+    "@fontsource-variable/anuphan": "^5.0.3",
+    "@types/node": "^20.2.6",
     "astro": "^2.6.1",
     "astro-seo": "^0.7.2",
     "prettier": "2.8.8",

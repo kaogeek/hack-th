@@ -7,77 +7,77 @@
 
 export interface Config {
   collections: {
-    apis: Api;
-    hackathons: Hackathon;
-    organizations: Organization;
-    pains: Pain;
-    projects: Project;
-    services: Service;
-    users: User;
-  };
-  globals: {};
+    apis: Api
+    hackathons: Hackathon
+    organizations: Organization
+    pains: Pain
+    projects: Project
+    services: Service
+    users: User
+  }
+  globals: {}
 }
 export interface Api {
-  id: string;
-  name: string;
-  project?: string | Project;
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  name: string
+  project?: string | Project
+  updatedAt: string
+  createdAt: string
 }
 export interface Project {
-  id: string;
-  name: string;
-  slug?: string;
+  id: string
+  name: string
+  slug?: string
   description?: {
-    [k: string]: unknown;
-  }[];
-  status: 'NOT_STARTED' | 'IN_DEVELOPMENT' | 'RELEASED' | 'DONE';
-  organizations?: string[] | Organization[];
-  apis?: string[] | Api[];
-  pains?: string[] | Pain[];
-  hackathons?: string[] | Hackathon[];
-  updatedAt: string;
-  createdAt: string;
+    [k: string]: unknown
+  }[]
+  status: 'NOT_STARTED' | 'IN_DEVELOPMENT' | 'RELEASED' | 'DONE'
+  organizations?: string[] | Organization[]
+  apis?: string[] | Api[]
+  pains?: string[] | Pain[]
+  hackathons?: string[] | Hackathon[]
+  updatedAt: string
+  createdAt: string
 }
 export interface Organization {
-  id: string;
-  name: string;
-  tags?: 'Civic' | 'Government';
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  name: string
+  tags?: 'Civic' | 'Government'
+  updatedAt: string
+  createdAt: string
 }
 export interface Pain {
-  id: string;
-  problem: string;
-  organizations?: string[] | Organization[];
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  problem: string
+  organizations?: string[] | Organization[]
+  updatedAt: string
+  createdAt: string
 }
 export interface Hackathon {
-  id: string;
-  name: string;
-  organizations?: string[] | Organization[];
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  name: string
+  organizations?: string[] | Organization[]
+  updatedAt: string
+  createdAt: string
 }
 export interface Service {
-  id: string;
-  name: string;
-  project?: string[] | Project[];
-  apis?: string[] | Api[];
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  name: string
+  project?: string[] | Project[]
+  apis?: string[] | Api[]
+  updatedAt: string
+  createdAt: string
 }
 export interface User {
-  id: string;
-  updatedAt: string;
-  createdAt: string;
-  email?: string;
-  resetPasswordToken?: string;
-  resetPasswordExpiration?: string;
-  salt?: string;
-  hash?: string;
-  loginAttempts?: number;
-  lockUntil?: string;
-  password?: string;
+  id: string
+  updatedAt: string
+  createdAt: string
+  email?: string
+  resetPasswordToken?: string
+  resetPasswordExpiration?: string
+  salt?: string
+  hash?: string
+  loginAttempts?: number
+  lockUntil?: string
+  password?: string
 }
