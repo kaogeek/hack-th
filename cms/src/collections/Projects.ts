@@ -20,7 +20,7 @@ const Projects: CollectionConfig = {
     },
     {
       name: 'status',
-      type: 'select',
+      type: 'radio',
       options: [
         {
           label: 'Not Started',
