@@ -27,7 +27,7 @@ const Services: CollectionConfig = {
       relationTo: 'apis',
       hasMany: true,
     },
-    // TODO: #service-1 add virtual field "Organization" by populating projects' organizations
+    // TODO: #service1 add virtual field "Organization" by populating projects' organizations
   ],
 }
 

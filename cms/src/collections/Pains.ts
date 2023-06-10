@@ -20,7 +20,7 @@ const Pains: CollectionConfig = {
       relationTo: 'organizations',
       hasMany: true,
     },
-    // TODO: #pain-1 Populate back-reference to Projects,
+    // TODO: #pain1 Populate back-reference to Projects,
   ],
 }
 
