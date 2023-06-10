@@ -28,6 +28,9 @@ export interface Project {
   id: string;
   name: string;
   slug?: string;
+  description?: {
+    [k: string]: unknown;
+  }[];
   status: 'NOT_STARTED' | 'IN_DEVELOPMENT' | 'RELEASED' | 'DONE';
   organizations?: string[] | Organization[];
   apis?: string[] | Api[];

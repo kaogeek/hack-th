@@ -19,6 +19,10 @@ const Projects: CollectionConfig = {
       type: 'text',
     },
     {
+      name: 'description',
+      type: 'richText',
+    },
+    {
       name: 'status',
       type: 'radio',
       options: [
