@@ -14,3 +14,4 @@ yarn.lock
 dist/
 .astro
 .cache
+payload-types.ts
