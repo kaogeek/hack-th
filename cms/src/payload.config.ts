@@ -23,7 +23,7 @@ export default buildConfig({
     Users,
   ],
   typescript: {
-    // TODO: #types Create a script to patch `payload-types.ts` after generation to remove union types in relationship fields
+    // TODO: #1 Create a script to patch `payload-types.ts` after generation to remove union types in relationship fields
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
   graphQL: {

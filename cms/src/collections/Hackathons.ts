@@ -20,7 +20,7 @@ const Hackathons: CollectionConfig = {
       relationTo: 'organizations',
       hasMany: true,
     },
-    // TODO: #hackathon1 Populate back-reference to Projects,
+    // TODO: #2 Populate back-reference to Projects,
   ],
 }
 

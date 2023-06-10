@@ -19,7 +19,7 @@ const Organizations: CollectionConfig = {
       type: 'select',
       options: ['Civic', 'Government'],
     },
-    // TODO: #org1 Populate back-reference to Projects,
+    // TODO: #3 Populate back-reference to Projects,
   ],
 }
 
