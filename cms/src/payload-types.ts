@@ -20,7 +20,7 @@ export interface Config {
 export interface Api {
   id: string;
   name: string;
-  project?: string | Project;
+  backpopulate_projects_apis?: string[] | Project[];
   updatedAt: string;
   createdAt: string;
 }
@@ -51,6 +51,7 @@ export interface Pain {
   id: string;
   problem: string;
   organizations?: string[] | Organization[];
+  backpopulate_projects_pains?: string[] | Project[];
   updatedAt: string;
   createdAt: string;
 }
@@ -58,6 +59,7 @@ export interface Hackathon {
   id: string;
   name: string;
   organizations?: string[] | Organization[];
+  backpopulate_projects_hackathons?: string[] | Project[];
   updatedAt: string;
   createdAt: string;
 }
