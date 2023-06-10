@@ -86,7 +86,6 @@ export function BackpopulateField<TSlug extends keyof Config['collections']>({
     name: `backpopulate_${relationFrom}_${relationField}`,
     type: 'relationship',
     label: label,
-    // TODO: backpopulate-3 remove field from list view
     admin: {
       readOnly: true,
     },
