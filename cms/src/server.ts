@@ -19,7 +19,10 @@ const start = async () => {
     },
   })
 
-  app.listen(3000)
+  const port = parseInt(process.env.PORT ?? '3000')
+  app.listen(port, () => {
+    payload.logger.info(`Server running at http://localhost:${port}`)
+  })
 }
 
 start()
