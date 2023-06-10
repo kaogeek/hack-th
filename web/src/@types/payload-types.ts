@@ -40,11 +40,12 @@ export interface Project {
   createdAt: string
 }
 export interface Organization {
-  id: string
-  name: string
-  tags?: 'Civic' | 'Government'
-  updatedAt: string
-  createdAt: string
+  id: string;
+  name: string;
+  tags?: 'Civic' | 'Government';
+  backpopulate_projects_organizations?: string[] | Project[];
+  updatedAt: string;
+  createdAt: string;
 }
 export interface Pain {
   id: string

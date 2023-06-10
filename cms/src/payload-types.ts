@@ -43,6 +43,7 @@ export interface Organization {
   id: string;
   name: string;
   tags?: 'Civic' | 'Government';
+  backpopulate_projects_organizations?: string[] | Project[];
   updatedAt: string;
   createdAt: string;
 }
