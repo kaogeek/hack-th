@@ -50,6 +50,10 @@ function backpopulateHook<TSlug extends keyof Config['collections']>({
   }
 }
 
+const clearFieldData: FieldHook = () => {
+  return null
+}
+
 export interface BackpopulateFieldOptions<
   TSlug extends keyof Config['collections']
 > {
@@ -99,6 +103,7 @@ export function BackpopulateField<TSlug extends keyof Config['collections']>({
           collectionSlug,
         }),
       ],
+      beforeChange: [clearFieldData],
     },
   }
 }
