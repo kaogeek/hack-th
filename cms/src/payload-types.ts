@@ -20,7 +20,7 @@ export interface Config {
 export interface Api {
   id: string;
   name: string;
-  project?: string | Project;
+  projects?: string[] | Project[];
   updatedAt: string;
   createdAt: string;
 }
@@ -43,6 +43,7 @@ export interface Organization {
   id: string;
   name: string;
   tags?: 'Civic' | 'Government';
+  projects?: string[] | Project[];
   updatedAt: string;
   createdAt: string;
 }
@@ -50,6 +51,7 @@ export interface Pain {
   id: string;
   problem: string;
   organizations?: string[] | Organization[];
+  projects?: string[] | Project[];
   updatedAt: string;
   createdAt: string;
 }
@@ -57,6 +59,7 @@ export interface Hackathon {
   id: string;
   name: string;
   organizations?: string[] | Organization[];
+  projects?: string[] | Project[];
   updatedAt: string;
   createdAt: string;
 }

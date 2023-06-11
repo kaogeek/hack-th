@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload/types'
+import { BackpopulateField } from '../fields/Backpopulate'
 
 const Hackathons: CollectionConfig = {
   slug: 'hackathons',
@@ -20,7 +21,13 @@ const Hackathons: CollectionConfig = {
       relationTo: 'organizations',
       hasMany: true,
     },
-    // @todo #2 Populate back-reference to Projects,
+    BackpopulateField({
+      name: 'projects',
+      relationFrom: 'projects',
+      relationField: 'hackathons',
+      label: 'Projects',
+      collectionSlug: 'hackathons',
+    }),
   ],
 }
 

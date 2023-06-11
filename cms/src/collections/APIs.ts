@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload/types'
+import { BackpopulateField } from '../fields/Backpopulate'
 
 const APIs: CollectionConfig = {
   slug: 'apis',
@@ -18,12 +19,13 @@ const APIs: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    {
-      name: 'project',
-      type: 'relationship',
-      relationTo: 'projects',
-      hasMany: false,
-    },
+    BackpopulateField({
+      name: 'projects',
+      relationFrom: 'projects',
+      relationField: 'apis',
+      label: 'Projects',
+      collectionSlug: 'apis',
+    }),
   ],
 }
 
