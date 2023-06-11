@@ -38,6 +38,7 @@ function backpopulateHook<TSlug extends keyof Config['collections']>({
         pagination: false,
         where: {
           [relationField]: {
+            // TODO: backpopulate-3 handle relationships with hasMany: false
             contains: data.id,
           },
         },
