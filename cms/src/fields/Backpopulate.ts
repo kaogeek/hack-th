@@ -45,7 +45,7 @@ function backpopulateHook<TSlug extends keyof Config['collections']>({
       })
     }
 
-    const relatedIds = relatedDocs.docs.map(doc => doc.id)
+    const relatedIds = (relatedDocs?.docs ?? []).map(doc => doc.id)
     return relatedIds
   }
 }

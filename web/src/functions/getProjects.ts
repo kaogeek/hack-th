@@ -9,9 +9,9 @@ export const getProjects = async () => {
 
   const { docs: projects } = await fetch(
     'https://payload.creatorsgarten.org/api/projects'
-  ).then(o => {
+  ).then(async o => {
     if (o.ok) return o.json() as Promise<{ docs: Project[] }>
-    else throw o
+    else throw new Error(await o.text())
   })
 
   await writeFileSystem(['payload', 'projects'], projects)
