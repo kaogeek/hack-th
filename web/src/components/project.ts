@@ -10,8 +10,8 @@ interface ProjectProps {
 
 export const Project = ({
   project: { title, description, tags },
-}: ProjectProps) => {
-  const element = cardBuilder(card => {
+}: ProjectProps) =>
+  cardBuilder(card => {
     card.title(title)
 
     card.description(description)
@@ -23,6 +23,3 @@ export const Project = ({
       })
     )
   })
-
-  return element
-}
