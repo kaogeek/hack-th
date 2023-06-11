@@ -5,16 +5,15 @@ import { Field, FieldHook } from 'payload/types'
 
 type BackpopulateHookOptions<TSlug extends keyof Config['collections']> = Pick<
   BackpopulateFieldOptions<TSlug>,
-  'relationFrom' | 'relationField' | 'collectionSlug'
+  'relationFrom' | 'relationField'
 >
 
 function backpopulateHook<TSlug extends keyof Config['collections']>({
   relationFrom,
   relationField,
-  collectionSlug,
 }: BackpopulateHookOptions<TSlug>): FieldHook {
   return async ({ req, data }) => {
-    const { payload } = req
+    const { payload, collection } = req
 
     const fromCollection = payload.config.collections.find(
       collection => collection.slug === relationFrom
@@ -32,7 +31,7 @@ function backpopulateHook<TSlug extends keyof Config['collections']>({
     if (Array.isArray(field.relationTo)) {
       // TODO: backpopulate-1 handle backpopulation for polymorphic relationships
       throw new Error('polymorphic relationship backpopulation not implemented')
-    } else if (field.relationTo === collectionSlug) {
+    } else if (field.relationTo === collection.config.slug) {
       relatedDocs = await payload.find({
         collection: relationFrom,
         pagination: false,
@@ -77,19 +76,12 @@ export interface BackpopulateFieldOptions<
    * The label to display in the admin UI
    */
   label: string
-
-  // TODO: backpopulate-2 find a way to use collection from afterRead hook argument instead.
-  /**
-   * The collection of this field. This must be set to the slug of the collection this field belongs to.
-   */
-  collectionSlug: keyof Config['collections']
 }
 
 export function BackpopulateField<TSlug extends keyof Config['collections']>({
   name,
   relationFrom,
   relationField,
-  collectionSlug,
   label,
 }: BackpopulateFieldOptions<TSlug>): Field {
   return {
@@ -106,7 +98,6 @@ export function BackpopulateField<TSlug extends keyof Config['collections']>({
         backpopulateHook({
           relationFrom,
           relationField,
-          collectionSlug,
         }),
       ],
       beforeChange: [clearFieldData],

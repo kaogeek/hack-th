@@ -24,7 +24,6 @@ const APIs: CollectionConfig = {
       relationFrom: 'projects',
       relationField: 'apis',
       label: 'Projects',
-      collectionSlug: 'apis',
     }),
   ],
 }

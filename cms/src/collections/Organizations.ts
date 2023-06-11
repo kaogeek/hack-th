@@ -25,7 +25,6 @@ const Organizations: CollectionConfig = {
       relationFrom: 'projects',
       relationField: 'organizations',
       label: 'Projects',
-      collectionSlug: 'organizations',
     }),
   ],
 }

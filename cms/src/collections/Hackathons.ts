@@ -26,7 +26,6 @@ const Hackathons: CollectionConfig = {
       relationFrom: 'projects',
       relationField: 'hackathons',
       label: 'Projects',
-      collectionSlug: 'hackathons',
     }),
   ],
 }
