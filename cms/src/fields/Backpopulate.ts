@@ -29,7 +29,7 @@ function backpopulateHook<TSlug extends keyof Config['collections']>({
 
     let relatedDocs: PaginatedDocs<Config['collections'][TSlug]>
     if (Array.isArray(field.relationTo)) {
-      // @todo BP1 handle backpopulation for polymorphic relationships
+      // @todo #BP1 handle backpopulation for polymorphic relationships
       throw new Error('polymorphic relationship backpopulation not implemented')
     } else if (field.relationTo === collection.config.slug) {
       relatedDocs = await payload.find({
@@ -37,7 +37,7 @@ function backpopulateHook<TSlug extends keyof Config['collections']>({
         pagination: false,
         where: {
           [relationField]: {
-            // @todo BP3 handle relationships with hasMany: false
+            // @todo #BP3 handle relationships with hasMany: false
             contains: data.id,
           },
         },
