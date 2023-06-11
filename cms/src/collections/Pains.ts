@@ -22,6 +22,7 @@ const Pains: CollectionConfig = {
       hasMany: true,
     },
     BackpopulateField({
+      name: 'projects',
       relationFrom: 'projects',
       relationField: 'pains',
       label: 'Projects',

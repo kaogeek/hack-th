@@ -22,6 +22,7 @@ const Hackathons: CollectionConfig = {
       hasMany: true,
     },
     BackpopulateField({
+      name: 'projects',
       relationFrom: 'projects',
       relationField: 'hackathons',
       label: 'Projects',

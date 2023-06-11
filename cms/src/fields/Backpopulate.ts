@@ -58,6 +58,11 @@ export interface BackpopulateFieldOptions<
   TSlug extends keyof Config['collections']
 > {
   /**
+   * The name of the field. Must be unique within the collection.
+   */
+  name: string
+
+  /**
    * The collection to backpopulate relation from
    */
   relationFrom: TSlug
@@ -80,14 +85,14 @@ export interface BackpopulateFieldOptions<
 }
 
 export function BackpopulateField<TSlug extends keyof Config['collections']>({
+  name,
   relationFrom,
   relationField,
   collectionSlug,
   label,
 }: BackpopulateFieldOptions<TSlug>): Field {
-  relationFrom
   return {
-    name: `backpopulate_${relationFrom}_${relationField}`,
+    name: name,
     type: 'relationship',
     label: label,
     admin: {

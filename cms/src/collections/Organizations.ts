@@ -21,6 +21,7 @@ const Organizations: CollectionConfig = {
       options: ['Civic', 'Government'],
     },
     BackpopulateField({
+      name: 'projects',
       relationFrom: 'projects',
       relationField: 'organizations',
       label: 'Projects',

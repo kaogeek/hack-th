@@ -20,6 +20,7 @@ const APIs: CollectionConfig = {
       required: true,
     },
     BackpopulateField({
+      name: 'projects',
       relationFrom: 'projects',
       relationField: 'apis',
       label: 'Projects',
