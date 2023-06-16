@@ -12,7 +12,7 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "dependencies": {
-    "@hackth/design-system": "*",
+    "@hackth/design-system-legacy": "*",
     "@fastify/middie": "^8.3.0",
     "@fastify/static": "^6.10.1",
     "@types/react": "^18.0.21",
