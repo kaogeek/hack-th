@@ -1,15 +1,24 @@
-FROM node:18-alpine as deps-prod
+FROM node:18-alpine as base
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml* ./
-RUN npx pnpm -r i --frozen-lockfile --prod
+RUN corepack prepare pnpm@latest --activate
+RUN pnpm add -g turbo
+COPY . .
+RUN turbo prune --scope=@hackth/web --docker
 
 # ? -------------------------
 
-FROM node:18-alpine as builder
+# FROM base as deps-prod
 
-WORKDIR /app
+# WORKDIR /app
+
+# COPY package.json pnpm-lock.yaml* ./
+# RUN npx pnpm -r i --frozen-lockfile --prod
+
+# ? -------------------------
+
+FROM base as builder
 
 COPY package.json pnpm-lock.yaml* ./
 RUN npx pnpm -r i --frozen-lockfile

@@ -12,6 +12,7 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "dependencies": {
+    "@hackth/design-system": "*",
     "@fastify/middie": "^8.3.0",
     "@fastify/static": "^6.10.1",
     "@types/react": "^18.0.21",
@@ -30,7 +31,6 @@
     "astro-seo": "^0.7.2",
     "prettier": "2.8.8",
     "prettier-plugin-astro": "0.9.0",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "tailwindcss": "3.3.2"
   }
 }
