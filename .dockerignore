@@ -6,3 +6,4 @@ build
 dist
 .turbo
 .cache
+storybook-static
