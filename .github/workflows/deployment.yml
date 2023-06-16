@@ -6,14 +6,16 @@ on:
   workflow_dispatch:
 
 permissions:
+  id-token: write
   packages: write
+  pages: write
 
 concurrency:
   group: deploy
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  containers:
     name: ${{ matrix.context }}
     runs-on: ubuntu-latest
     strategy:
@@ -48,3 +50,33 @@ jobs:
         env:
           DEPLOYS_AUTH_USER: ${{ secrets.DEPLOYS_AUTH_USER }}
           DEPLOYS_AUTH_PASS: ${{ secrets.DEPLOYS_AUTH_PASS }}
+
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: install
+        run: pnpm -r i --frozen-lockfile
+      - name: build
+        run: pnpm build --scope=@hackth/storybook
+      - name: configure
+        uses: actions/configure-pages@v3
+      - name: upload
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: apps/storybook/storybook-static
+      - name: deploy
+        id: deployment
+        uses: actions/deploy-pages@v2
+      - name: 'logging'
+        run: echo "Deployed at ${{ steps.deployment.outputs.page_url }}"
