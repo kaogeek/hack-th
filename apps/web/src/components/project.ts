@@ -1,4 +1,4 @@
-import { cardBuilder } from '@hackth/design-system-legacy'
+import { cardBuilder } from '@hackth/react'
 
 interface ProjectProps {
   project: {
@@ -12,14 +12,14 @@ export const Project = ({
   project: { title, description, tags },
 }: ProjectProps) =>
   cardBuilder(card => {
-    card.title(title)
-
-    card.description(description)
-
+    
     tags.forEach(tag =>
       card.tag({
         label: tag,
         to: 'https://google.com',
       })
     )
+    card.title(title)
+    card.description(description)
+
   })

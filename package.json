@@ -12,6 +12,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "tailwindcss": "^3.3.2",
     "turbo": "latest",
     "typescript": "^5.1.3"
   }

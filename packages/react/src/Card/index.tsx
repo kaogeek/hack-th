@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactElement } from 'react'
 
 type CardTag = {
   label: string
@@ -28,7 +28,7 @@ interface Builder {
 
 type BuildCardFn = (card: Builder) => void
 
-export const cardBuilder = (buildCard: BuildCardFn): ReactNode => {
+export const cardBuilder = (buildCard: BuildCardFn): ReactElement => {
   let title: string | undefined
   let description: string | undefined
   let tags: CardTag[] = []
