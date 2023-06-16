@@ -1,0 +1,8 @@
+**/node_modules/**
+.dockerignore
+Dockerfile.*
+out
+build
+dist
+.turbo
+.cache

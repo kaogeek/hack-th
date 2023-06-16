@@ -1,0 +1,50 @@
+FROM node:18-alpine as base
+
+WORKDIR /app
+ENV PNPM_HOME=/usr/local/bin
+
+RUN npm i -g pnpm
+RUN pnpm add -g turbo
+
+# ? -------------------------
+
+FROM base AS builder
+
+COPY . .
+RUN turbo prune --scope=@hackth/web --docker
+
+# ? -------------------------
+
+FROM base AS installer
+
+WORKDIR /app
+
+COPY --from=builder /app/out/json/ .
+COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
+RUN pnpm i
+
+COPY --from=builder /app/out/full/ .
+RUN turbo run build --filter=@hackth/web
+
+RUN rm -rf **/node_modules && pnpm i --prod
+
+# ? -------------------------
+
+FROM gcr.io/distroless/nodejs18-debian11:nonroot as runner
+
+WORKDIR /app
+
+USER nonroot
+EXPOSE 8080
+
+ENV NODE_ENV production
+ENV PORT 8080
+
+
+COPY --from=installer /app/node_modules ./node_modules
+COPY --from=installer /app/apps/web/dist ./apps/web/dist
+COPY --from=installer /app/apps/web/server.mjs ./apps/web/server.mjs
+COPY --from=installer /app/apps/web/node_modules ./apps/web/node_modules
+
+
+CMD ["./apps/web/server.mjs"]

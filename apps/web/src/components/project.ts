@@ -1,4 +1,4 @@
-import { cardBuilder } from '$design-system/card'
+import { cardBuilder } from '@hackth/design-system-legacy'
 
 interface ProjectProps {
   project: {

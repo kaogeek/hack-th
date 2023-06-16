@@ -6,7 +6,6 @@
     "baseUrl": ".",
     "paths": {
       "$components/*": ["src/components/*"],
-      "$design-system/*": ["src/design-system/*"],
       "$functions/*": ["src/functions/*"],
       "$layouts/*": ["src/layouts/*"],
       "$types/*": ["src/@types/*"]
