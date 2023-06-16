@@ -33,8 +33,7 @@ jobs:
       - name: build
         uses: docker/build-push-action@v4
         with:
-          context: ${{ matrix.context }}
-          file: ${{ matrix.context }}/Dockerfile
+          file: Dockerfile.${{ matrix.context }}
           push: true
           tags: ghcr.io/${{ github.repository }}-${{ matrix.context }}
       - name: publish
